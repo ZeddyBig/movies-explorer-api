@@ -83,7 +83,7 @@ module.exports.login = (req, res, next) => {
       const token = generateToken({ _id: user._id });
       res
         .cookie('jwt', token, {
-          httpOnly: true, maxAge: 3600000 * 24 * 7, sameSite: true,
+          httpOnly: true, maxAge: 3600000 * 24 * 7, sameSite: 'none',
         })
         .send({ token });
     })
@@ -93,7 +93,7 @@ module.exports.login = (req, res, next) => {
 module.exports.signout = (req, res) => {
   res
     .clearCookie('jwt', {
-      httpOnly: true, maxAge: 3600000 * 24 * 7, sameSite: true,
+      httpOnly: true, maxAge: 3600000 * 24 * 7, sameSite: 'none',
     })
     .send({ message: 'Куки удалены' });
 };
