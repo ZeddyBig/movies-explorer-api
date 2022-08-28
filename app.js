@@ -4,6 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 const { errors } = require('celebrate');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const NotFoundError = require('./errors/NotFoundError');
@@ -11,8 +12,22 @@ const router = require('./routes/index');
 const { limiter } = require('./helpers/rateLimiter');
 const { MONGO_URL } = require('./config');
 
-const { PORT = 3000 } = process.env;
+const options = {
+  origin: [
+    'http://localhost:3000',
+    'http://zeddybig.diploma.nomoredomains.xyz',
+    'https://zeddybig.diploma.nomoredomains.xyz',
+    'http://api.zeddybig.diploma.nomoredomains.xyz',
+    'https://api.zeddybig.diploma.nomoredomains.xyz',
+    'https://github.com/ZeddyBig',
+  ],
+  credentials: true, // эта опция позволяет устанавливать куки
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+};
+
+const { PORT = 3001 } = process.env;
 const app = express();
+app.use(cors(options));
 app.use(helmet());
 
 app.use(bodyParser.json());
