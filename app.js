@@ -15,8 +15,8 @@ const { MONGO_URL } = require('./config');
 const options = {
   origin: [
     'http://localhost:3000',
-    'http://zeddybig.diploma.nomoredomains.xyz',
-    'https://zeddybig.diploma.nomoredomains.xyz',
+    'http://zeddybig.diploma.nomoredomains.sbs',
+    'https://zeddybig.diploma.nomoredomains.sbs',
     'http://api.zeddybig.diploma.nomoredomains.xyz',
     'https://api.zeddybig.diploma.nomoredomains.xyz',
     'https://github.com/ZeddyBig',
