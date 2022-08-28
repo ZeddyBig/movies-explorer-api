@@ -14,4 +14,6 @@
 
 **Посмотрите на мою работу сами!**
 
+Frontend: https://zeddybig.diploma.nomoredomains.xyz/
+
 Backend: https://api.zeddybig.diploma.nomoredomains.xyz/
